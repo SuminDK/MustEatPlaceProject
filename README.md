@@ -1,4 +1,4 @@
-<img width="382" alt="Screenshot 2024-04-11 at 12 33 45 AM" src="https://github.com/dianakim0411/MustEatPlaceProject/assets/70240772/afbdf4bd-2b96-4beb-92d4-29a41a38e3e4">## Must-Eat App
+## Must-Eat App
 
 The Must-Eat App is a sophisticated mobile application designed to streamline the process of managing restaurant information and bookmarking favorite dining spots. With its intuitive user interface and robust functionality, the app provides users with a seamless experience for adding, editing, and deleting restaurant entries across multiple database platforms including SQLite, Firebase, and MySQL.
 
