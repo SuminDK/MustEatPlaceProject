@@ -25,7 +25,7 @@ The Must-Eat App is a sophisticated mobile application designed to streamline th
 - ***MySQL database integration is currently in progress and will be finalized in future updates.***
 
 ### Packages Used: 
-<img width="200" alt="Screenshot 2024-04-11 at 12 27 07 AM" src="https://github.com/dianakim0411/MustEatPlaceProject/assets/70240772/8878a911-80f2-4ab7-8105-deed807f15d5">
+<img width="330" alt="Screenshot 2024-04-11 at 12 27 07 AM" src="https://github.com/dianakim0411/MustEatPlaceProject/assets/70240772/8878a911-80f2-4ab7-8105-deed807f15d5">
 
 
 
