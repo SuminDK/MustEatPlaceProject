@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:must_eat_place_app_mysql/view/insert_place.dart';
+import 'package:must_eat_place_app_mysql/view/update_place.dart';
 
 
 
@@ -71,34 +72,47 @@ getJSONData()async{
 
 //----- WIDGET FUNCTIONS ----
 Widget cardBuild(BuildContext context, int index){
-  return Card(
-    child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              const Text(
-                'Name : ',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold
+  return GestureDetector(
+    onTap: () {
+      Get.to(const Update(),arguments: {
+          [
+            data[index]['name'],
+            data[index]['phone'],
+            data[index]['estimate'],
+            data[index]['lat'],
+            data[index]['lng'],
+          ]
+      });
+    },
+    child: Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                const Text(
+                  'Name : ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold
+                  ),
                 ),
-              ),
-              Text(data[index]['name'].toString())
-            ],
-          ),
-          Row(
-            children: [
-              const Text(
-                'Phone : ',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold
+                Text(data[index]['name'].toString())
+              ],
+            ),
+            Row(
+              children: [
+                const Text(
+                  'Phone : ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold
+                  ),
                 ),
-              ),
-              Text(data[index]['phone'].toString())
-            ],
-          ),
-        ],
+                Text(data[index]['phone'].toString())
+              ],
+            ),
+          ],
+        ),
       ),
     ),
   );
