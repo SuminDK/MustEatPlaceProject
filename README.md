@@ -1,6 +1,6 @@
 ## Must-Eat App
 
-The Must-Eat App is a sophisticated mobile application designed to streamline the process of managing restaurant information and bookmarking favorite dining spots. With its intuitive user interface and robust functionality, the app provides users with a seamless experience for adding, editing, and deleting restaurant entries across multiple database platforms including SQLite, Firebase, and MySQL.
+The Must-Eat App is a very simple mobile application designed to streamline the process of managing restaurant information and bookmarking favorite dining spots. With its intuitive user interface and robust functionality, the app provides users with a seamless experience for adding, editing, and deleting restaurant entries across multiple database platforms including SQLite, Firebase, and MySQL.
 
 ### Key Features:
 
