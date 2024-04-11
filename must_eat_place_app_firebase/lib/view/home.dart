@@ -62,53 +62,55 @@ class _HomeState extends State<Home> {
       lng: doc['lng'] ,
       image: doc['image'] ,
     );
-    return Dismissible(
-      direction: DismissDirection.endToStart,
-      background: Container(
-        color: Colors.red,
-        alignment: Alignment.centerRight,
-        child: const Icon(Icons.delete_forever),
-      ),
-      key: ValueKey(doc.id),
-      onDismissed: (direction) async {
-        // Delete command
-        await FirebaseFirestore.instance
-            .collection('musteatplace')
-            .doc(doc.id)
-            .delete();
+    return GestureDetector(
+      onTap: () {
+        Get.to(const Update(), arguments: [
+          doc.id, // Document ID
+          doc['name'] ,
+          doc['phone'] ,
+          doc['estimate'] ,
+          doc['lat'] ,
+          doc['lng'],
+          doc['image'] ,
+        ]);
       },
-      child: GestureDetector(
-        onTap: () {
-          Get.to(const Update(), arguments: [
-            doc.id, // Document ID
-            doc['name'] ,
-            doc['phone'] ,
-            doc['estimate'] ,
-            doc['lat'] ,
-            doc['lng'],
-            doc['image'] ,
-          ]);
-        },
+      child: Slidable(
+        startActionPane:ActionPane(
+          motion: const DrawerMotion(), 
+          children: [
+            SlidableAction(
+              backgroundColor: Colors.orange,
+              icon:  Icons.map_rounded,
+              label: 'Map',
+              onPressed: (context) {
+                Get.to(
+                  ()=> const Location(),
+                  arguments: [
+                    double.parse(doc['lat']),
+                    double.parse(doc['lng']),
+                  ]
+                );
+              },
+            ),
+          ]
+          ),
         child: Slidable(
-          startActionPane:ActionPane(
+          endActionPane: ActionPane(
             motion: const DrawerMotion(), 
             children: [
               SlidableAction(
-                backgroundColor: Colors.orange,
-                icon:  Icons.map_rounded,
-                label: 'Map',
-                onPressed: (context) {
-                  Get.to(
-                    ()=> const Location(),
-                    arguments: [
-                      double.parse(doc['lat']),
-                      double.parse(doc['lng']),
-                    ]
-                  );
+                backgroundColor: Colors.red,
+                icon: Icons.delete_forever,
+                label: 'Delete',
+                onPressed: (context) async {
+                  await FirebaseFirestore.instance
+                  .collection('musteatplace')
+                  .doc(doc.id)
+                  .delete();
                 },
-              ),
+              )
             ]
-            ),
+          ),
           child: Card(
             child: ListTile(
               title: Row(
